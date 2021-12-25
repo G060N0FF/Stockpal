@@ -1,5 +1,11 @@
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,4 +14,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.navbar {
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background-color: #00a7e1;
+}
+.navbar a {
+  text-decoration: none;
+  color: orange;
+}
+.logo {
+  display: block;
+  float: left;
+}
+.logo-text {
+  margin: 20px 30px;
 }
