@@ -12,6 +12,8 @@ export default class Home extends React.Component {
                         <h1 className='banner-title'>Stonks</h1>
                         <Link to="#" className='banner-option'>Browse</Link>
                         <br />
+                        <br />
+                        <br />
                         <Link to="#" className='banner-option'>Start trading</Link>
                     </div>
                 </Tilt>
