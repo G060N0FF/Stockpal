@@ -35,3 +35,56 @@ code {
 .logo-text {
   margin: 20px 30px;
 }
+
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 490px;
+  background: rgb(255,255,255);
+  background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(0,167,225,1) 30%, rgba(217,0,255,1) 100%);
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: left;
+}
+.banner-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  right: 10px;
+  border: 1px solid black;
+  border-radius: 8px;
+  z-index: -1;
+}
+.banner-title {
+  color: white;
+  font-size: 50px;
+}
+.banner-option {
+  color: white;
+  text-decoration: none;
+  border: 3px solid white;
+  border-radius: 8px;
+  background: none;
+  font-size: 40px;
+  margin-top: 40px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .banner {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 80vw;
+  }
+}
