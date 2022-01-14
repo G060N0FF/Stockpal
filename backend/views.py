@@ -19,11 +19,11 @@ def stock_price(request):
     data = yf.download(symbols, start , end, interval='1h')
 
     # Changing data type
-    data_json = {}
+    data_json = []
     for i in range(len(data.index)):
-        data_json[str(data.index[i])] = { 
-            'Open': data['Open'][i], 
-            'Close': data['Close'][i],
-        }
+        data_json.append({
+            'Date': str(data.index[i]),
+            'Value': str(data['Open'][i])
+        })
 
-    return JsonResponse(data_json)
+    return JsonResponse(data_json, safe=False)
