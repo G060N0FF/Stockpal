@@ -1,5 +1,7 @@
 import React from "react";
 
+import '../css/Browse.css';
+
 export default class Browse extends React.Component {
     componentDidMount() {
         fetch('/stock')
