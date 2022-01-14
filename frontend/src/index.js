@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
+import Browse from './pages/Browse';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={ <App /> }>
           <Route index element={ <Home /> } />
+          <Route path="/browse" element={ <Browse /> } />
         </Route>
       </Routes>
     </BrowserRouter>

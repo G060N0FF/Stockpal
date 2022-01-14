@@ -78,6 +78,13 @@ code {
   padding: 10px;
 }
 
+.browse {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 600px) {
   .banner {
     padding-top: 20px !important;
