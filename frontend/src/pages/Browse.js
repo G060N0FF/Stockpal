@@ -7,7 +7,7 @@ export default class Browse extends React.Component {
     render() {
         return (
             <div className="browse">
-                <ChartComponent />
+                <ChartComponent symbol="AAPL" />
             </div>
         );
     }

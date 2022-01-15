@@ -27,5 +27,5 @@ urlpatterns = [
     path('browse/', views.react),
 
     # backend paths
-    path('api/stock/', views.stock_price, name='stock_price'),
+    path('api/stock/<path:symbol>/', views.stock_price, name='stock_price'),
 ]

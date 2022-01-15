@@ -15,7 +15,7 @@ export default class ChartComponent extends PureComponent {
         this.setState({ loaded: false });
 
         // fetch stock data
-        fetch('/api/stock/')
+        fetch(`/api/stock/${ this.props.symbol }/`)
         .then(res => res.json())
         .then(json => this.setState({ data: json.data, min: json.min, max: json.max, name: json.name, loaded: true }));
     }

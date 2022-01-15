@@ -9,14 +9,9 @@ def react(request):
     return render(request, 'index.html', context)
 
 
-def stock_price(request):
-    # initializing parameters
-    start = "2020-12-30"
-    end = "2021-01-09"
-    symbol = "AAPL"
-    
-    # getting the data
-    data = yf.download(symbol, start , end, interval='1h')
+def stock_price(request, symbol):
+    stock = yf.Ticker(symbol)
+    data = stock.history(period='1mo', interval='1h')
 
     # dictionary to change month format
     months = {
