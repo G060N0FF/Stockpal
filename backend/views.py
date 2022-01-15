@@ -13,17 +13,22 @@ def stock_price(request):
     # Initializing parameters
     start = "2020-12-30"
     end = "2021-01-09"
-    symbols = "AAPL"
+    symbol = "AAPL"
     
     # Getting the data
-    data = yf.download(symbols, start , end, interval='1h')
+    data = yf.download(symbol, start , end, interval='1h')
 
     # Changing data type
     data_json = []
     for i in range(len(data.index)):
         data_json.append({
-            'Date': str(data.index[i]),
-            'Value': str(data['Open'][i])
+            'Date': data.index[i],
+            'Value': data['Open'][i]
         })
 
-    return JsonResponse(data_json, safe=False)
+    return JsonResponse({
+        'name': yf.Ticker(symbol).info['longName'],
+        'min': min(data['Open']),
+        'max': max(data['Open']),
+        'data': data_json,
+    })

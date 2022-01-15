@@ -1,0 +1,27 @@
+.chart-component {
+    position: relative;
+    height: 40%;
+    width: 90%;
+}
+.chart {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.chart-stock-name {
+    margin: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    .chart-component {
+        height: 20% !important;
+        width: 100% !important;
+    }
+}
