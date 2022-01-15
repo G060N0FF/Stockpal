@@ -2,6 +2,9 @@
     position: relative;
     height: 40%;
     width: 90%;
+    -webkit-box-shadow: -4px 7px 15px 5px rgba(0,0,0,0.86); 
+    box-shadow: -4px 7px 15px 5px rgba(0,0,0,0.86);
+    border: 1px solid gray;
 }
 .chart {
     position: absolute;
@@ -11,9 +14,6 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-    border: 1px solid gray;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 .chart-stock-name {
     margin: 0px;

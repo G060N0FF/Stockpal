@@ -11,8 +11,10 @@ export default class ChartComponent extends PureComponent {
     }
 
     componentDidMount() {
+        // component is still loading
         this.setState({ loaded: false });
 
+        // fetch stock data
         fetch('/api/stock/')
         .then(res => res.json())
         .then(json => this.setState({ data: json.data, min: json.min, max: json.max, name: json.name, loaded: true }));
@@ -27,7 +29,7 @@ export default class ChartComponent extends PureComponent {
                     this.state.loaded
                     ?
                     <div className='chart'>
-                        <h3 className='chart-stock-name'>{name}</h3>
+                        <h2 className='chart-stock-name'>{name}</h2>
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart
                                 data={data}
