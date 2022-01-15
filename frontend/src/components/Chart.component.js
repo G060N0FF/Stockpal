@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import RingLoader from "react-spinners/RingLoader";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 import "../css/Chart.component.css";
 
@@ -49,7 +49,7 @@ export default class ChartComponent extends PureComponent {
                     </div>
                     : 
                     <div className="chart">
-                        <RingLoader />
+                        <ClimbingBoxLoader />
                     </div>
                 }
             </div>
