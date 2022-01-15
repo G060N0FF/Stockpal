@@ -22,6 +22,6 @@
 @media screen and (max-width: 600px) {
     .chart-component {
         height: 20% !important;
-        width: 100% !important;
+        width: 95% !important;
     }
 }

@@ -13,7 +13,7 @@ export default class ChartComponent extends PureComponent {
     componentDidMount() {
         this.setState({ loaded: false });
 
-        fetch('/stock')
+        fetch('/api/stock/')
         .then(res => res.json())
         .then(json => this.setState({ data: json.data, min: json.min, max: json.max, name: json.name, loaded: true }));
     }
