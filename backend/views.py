@@ -36,10 +36,22 @@ def stock_price(request, symbol):
             'Date': months[str(data.index[i])[5:7]] + str(data.index[i])[8:10] + ' ' + str(data.index[i])[:4],
             'Value': round(data['Open'][i], 2)
         })
+    
+    try:
+        response = {
+            'name': stock.info['longName'],
+            'min': min(data['Open']),
+            'max': max(data['Open']),
+            'data': data_json,
+            'data_found': True,
+        }
+    except Exception:
+        response = {
+            'name': symbol,
+            'min': 0,
+            'max': 100,
+            'data': [],
+            'data_found': False,
+        }
 
-    return JsonResponse({
-        'name': yf.Ticker(symbol).info['longName'],
-        'min': min(data['Open']),
-        'max': max(data['Open']),
-        'data': data_json,
-    })
+    return JsonResponse(response)

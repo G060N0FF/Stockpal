@@ -20,6 +20,9 @@
 .chart-stock-name {
     margin: 0px;
 }
+.no-data-error {
+    color: red;
+}
 
 @media screen and (max-width: 600px) {
     .chart-component {
