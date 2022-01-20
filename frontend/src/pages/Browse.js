@@ -9,6 +9,7 @@ export default class Browse extends React.Component {
         super(props);
         this.state = {};
         this.handleChange = this.handleChange.bind(this);
+        this.fetchStocksController = new AbortController();
     }
 
     componentDidMount() {
@@ -17,10 +18,16 @@ export default class Browse extends React.Component {
     }
 
     handleChange(event) {
+        // cancel previous fetch
+        this.fetchStocksController.abort();
+        this.fetchStocksController = new AbortController();
+
+        // prepare for fetch
         this.setState({ loaded: false });
 
         // find stock symbols by query
-        fetch(`https://ticker-2e1ica8b9.now.sh/keyword/${event.target.value}`)
+        const signal = this.fetchStocksController.signal;
+        fetch(`https://ticker-2e1ica8b9.now.sh/keyword/${event.target.value}`, {signal})
         .then(res => res.json())
         .then(json => json.map((row) => {
             return row.symbol;
