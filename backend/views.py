@@ -39,7 +39,7 @@ def stock_price(request, symbol):
     
     try:
         response = {
-            'name': stock.info['longName'],
+            'name': symbol,
             'min': min(data['Open']),
             'max': max(data['Open']),
             'data': data_json,

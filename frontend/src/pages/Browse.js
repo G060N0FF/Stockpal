@@ -25,14 +25,21 @@ export default class Browse extends React.Component {
         // prepare for fetch
         this.setState({ loaded: false });
 
+        // empty query
+        if (!event.target.value) {
+            this.setState({ loaded: true, symbols: ["TSLA", "AAPL", "AMZN", "FB", "NFLX", "GOOGL", "MSFT"] });
+        }
+
         // find stock symbols by query
-        const signal = this.fetchStocksController.signal;
-        fetch(`https://ticker-2e1ica8b9.now.sh/keyword/${event.target.value}`, {signal})
-        .then(res => res.json())
-        .then(json => json.map((row) => {
-            return row.symbol;
-        }))
-        .then(symbols => this.setState({ symbols: symbols, loaded: true }));
+        else {
+            const signal = this.fetchStocksController.signal;
+            fetch(`https://ticker-2e1ica8b9.now.sh/keyword/${event.target.value}`, {signal})
+            .then(res => res.json())
+            .then(json => json.map((row) => {
+                return row.symbol;
+            }))
+            .then(symbols => this.setState({ symbols: symbols, loaded: true }));
+        }
     }
 
     render() {
