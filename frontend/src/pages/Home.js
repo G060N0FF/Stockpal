@@ -11,7 +11,7 @@ export default class Home extends React.Component {
                 <Tilt>
                     <div className='banner'>
                         <div className='banner-shadow'></div>
-                        <h1 className='banner-title'>Stonks</h1>
+                        <h1 className='banner-title'>Stockpal</h1>
                         <Link to="/browse" className='banner-option'>Browse</Link>
                         <br />
                         <br />

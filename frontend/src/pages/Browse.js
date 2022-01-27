@@ -14,7 +14,6 @@ export default class Browse extends React.Component {
 
     componentDidMount() {
         this.setState({ loaded: true, symbols: ["TSLA", "AAPL", "AMZN", "FB", "NFLX", "GOOGL", "MSFT"] });
-        console.log(this);
     }
 
     handleChange(event) {

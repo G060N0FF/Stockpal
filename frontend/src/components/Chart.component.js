@@ -18,6 +18,11 @@ export default class ChartComponent extends PureComponent {
         fetch(`/api/stock/${this.props.symbol}/`)
         .then(res => res.json())
         .then(json => this.setState({ data: json.data, min: json.min, max: json.max, name: json.name, data_found: json.data_found, loaded: true }));
+
+        // load the names of the companies separately (because the fetching is too slow)
+        fetch(`/api/stock/${this.props.symbol}/name/`)
+        .then(res => res.json())
+        .then(json => this.setState({ name: json.name }));
     }
 
     render() {

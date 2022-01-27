@@ -9,7 +9,7 @@ def react(request):
     return render(request, 'index.html', context)
 
 
-def stock_price(request, symbol):
+def stock(request, symbol):
     stock = yf.Ticker(symbol)
     data = stock.history(period='1mo', interval='1h')
 
@@ -53,5 +53,14 @@ def stock_price(request, symbol):
             'data': [],
             'data_found': False,
         }
+
+    return JsonResponse(response)
+
+
+def stock_name(request, symbol):
+    stock = yf.Ticker(symbol)
+    response = {
+        'name': stock.info['longName'],
+    }
 
     return JsonResponse(response)
