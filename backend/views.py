@@ -59,8 +59,14 @@ def stock(request, symbol):
 
 def stock_name(request, symbol):
     stock = yf.Ticker(symbol)
-    response = {
-        'name': stock.info['longName'],
-    }
+    
+    try:
+        response = {
+            'name': stock.info['longName'],
+        }
+    except:
+        response = {
+            'name': symbol,
+        }
 
     return JsonResponse(response)

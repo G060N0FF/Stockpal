@@ -44,7 +44,7 @@ export default class Browse extends React.Component {
     render() {
         return (
             <div className="browse">
-                <input type="text" onChange={this.handleChange} />
+                <input type="text" onChange={this.handleChange} className="browse-search" placeholder="Search for stocks" />
                 {
                     this.state.loaded
                     ? (
