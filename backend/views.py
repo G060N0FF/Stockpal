@@ -1,6 +1,11 @@
 import yfinance as yf
 from django.http import JsonResponse
 from django.shortcuts import render
+from rest_framework import viewsets, permissions, status
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+
+from backend.serializers import UserSerializer
 
 
 # rendering react router
@@ -70,3 +75,25 @@ def stock_name(request, symbol):
         }
 
     return JsonResponse(response)
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def list(self, request):
+        response = {'message': 'List function is not offered in this path'}
+        return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def retrieve(self, request):
+        response = {'message': 'Retrieve function is not offered in this path'}
+        return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def update(self, request):
+        response = {'message': 'Update function is not offered in this path'}
+        return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def partial_update(self, request):
+        response = {'message': 'Partial update function is not offered in this path'}
+        return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
