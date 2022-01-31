@@ -25,13 +25,17 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+
+    # auth paths
+    path('api/auth/login/', views.login_view, name='login'),
+    path('api/auth/', include('rest_framework.urls')),
 
     # frontend paths
     path('', views.react),
     path('browse/', views.react),
 
     # backend paths
+    path('api/', include(router.urls)),
     path('api/stock/<path:symbol>/name/', views.stock_name, name='stock_name'),
     path('api/stock/<path:symbol>/', views.stock, name='stock'),
 ]

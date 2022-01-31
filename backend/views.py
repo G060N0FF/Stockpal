@@ -4,6 +4,10 @@ from django.shortcuts import render
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
+import json
+from rest_framework.decorators import api_view
 
 from backend.serializers import UserSerializer
 
@@ -97,3 +101,20 @@ class UserViewSet(viewsets.ModelViewSet):
     def partial_update(self, request):
         response = {'message': 'Partial update function is not offered in this path'}
         return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['POST'])
+@csrf_exempt
+def login_view(request):
+    if request.method != 'POST':
+        response = {'message': 'Non-POST requests are not offered in this path'}
+        return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+
+    user = authenticate(username=body['username'], password=body['password'])
+    login(request, user)
+
+    response = {'message': "Login successful"}
+    return Response(response)
