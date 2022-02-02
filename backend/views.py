@@ -101,6 +101,16 @@ class UserViewSet(viewsets.ModelViewSet):
         response = {'message': 'Partial update function is not offered in this path'}
         return Response(response, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+
+        if not request.user or request.user.pk != instance.pk:
+            response = {'message': 'You are not allowed to delete this user'}
+            return Response(response, status=status.HTTP_403_FORBIDDEN)
+
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 @api_view(['POST'])
 def login_view(request):
