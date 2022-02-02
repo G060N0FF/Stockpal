@@ -5,7 +5,6 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.views.decorators.csrf import csrf_exempt
 import json
 from rest_framework.decorators import api_view
 
@@ -104,7 +103,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['POST'])
-@csrf_exempt
 def login_view(request):
     if request.method != 'POST':
         response = {'message': 'Non-POST requests are not offered in this path'}
