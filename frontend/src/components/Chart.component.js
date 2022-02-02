@@ -44,14 +44,14 @@ export default class ChartComponent extends PureComponent {
                                 <AreaChart
                                     data={data}
                                     margin={{
-                                        top: 10,
-                                        right: 30,
+                                        top: 0,
+                                        right: 0,
                                         left: 0,
                                         bottom: 0,
                                     }}
                                 >
-                                    <XAxis dataKey="Date" axisLine={false} tick={false} />
-                                    <YAxis domain={[min, max]} axisLine={false} tick={false} />
+                                    <XAxis width={0} dataKey="Date" axisLine={false} tick={false} />
+                                    <YAxis width={0} domain={[min, max]} axisLine={false} tick={false} />
                                     <Tooltip />
                                     <Area type="monotone" dataKey="Value" stroke="#2234a8" fill="#f0f8fe" />
                                 </AreaChart>
