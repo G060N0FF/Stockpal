@@ -8,6 +8,7 @@ export default class ChartComponent extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
+        this.getForPeriod = this.getForPeriod.bind(this);
     }
 
     componentDidMount() {
@@ -25,6 +26,16 @@ export default class ChartComponent extends PureComponent {
         // .then(json => this.setState({ name: json.name }));
     }
 
+    getForPeriod(event) {
+        // component is still loading
+        this.setState({ loaded: false });
+
+        // fetch stock data by period
+        fetch(`/api/stock/${this.props.symbol}/${event.target.value}`)
+        .then(res => res.json())
+        .then(json => this.setState({ data: json.data, min: json.min, max: json.max, name: json.name, data_found: json.data_found, loaded: true}));
+    }
+
     render() {
         const { data, min, max, name, data_found } = this.state;
 
@@ -36,6 +47,13 @@ export default class ChartComponent extends PureComponent {
                     ?
                     <div className='chart'>
                         <h2 className='chart-stock-name'>{name}</h2>
+                        <div className='chart-period-options'>
+                            <button value="1d" onClick={this.getForPeriod}>1d</button>
+                            <button value="5d" onClick={this.getForPeriod}>5d</button>
+                            <button value="1mo" onClick={this.getForPeriod}>1mo</button>
+                            <button value="3mo" onClick={this.getForPeriod}>3mo</button>
+                            <button value="1y" onClick={this.getForPeriod}>1y</button>
+                        </div>
                         {
                             data_found
                             // if data was loaded successfully

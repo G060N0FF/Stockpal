@@ -37,5 +37,6 @@ urlpatterns = [
     # backend paths
     path('api/', include(router.urls)),
     path('api/stock/<path:symbol>/name/', views.stock_name, name='stock_name'),
+    path('api/stock/<path:symbol>/<path:period>/', views.stock, name='stock_name'),
     path('api/stock/<path:symbol>/', views.stock, name='stock'),
 ]

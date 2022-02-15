@@ -17,9 +17,9 @@ def react(request):
     return render(request, 'index.html', context)
 
 
-def stock(request, symbol):
+def stock(request, symbol, period='1mo'):
     stock = yf.Ticker(symbol)
-    data = stock.history(period='1mo', interval='1h')
+    data = stock.history(period, interval='1h')
 
     # dictionary to change month format
     months = {
