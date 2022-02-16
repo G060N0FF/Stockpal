@@ -23,6 +23,28 @@
 .no-data-error {
     color: red;
 }
+.chart-period-options {
+    border: 1px solid gray;
+    border-radius: 4px;
+    position: relative;
+}
+.chart-period-options button {
+    background: none;
+    border: none;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    height: 100%;
+}
+.chart-period-options button:hover {
+    font-size: 20px;
+    border: none !important;
+}
+.first-period-button {
+    border-left: none !important;
+}
+.last-period-button {
+    border-right: none !important;
+}
 
 @media screen and (max-width: 600px) {
     .chart-component {

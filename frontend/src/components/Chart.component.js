@@ -48,11 +48,11 @@ export default class ChartComponent extends PureComponent {
                     <div className='chart'>
                         <h2 className='chart-stock-name'>{name}</h2>
                         <div className='chart-period-options'>
-                            <button value="1d" onClick={this.getForPeriod}>1d</button>
+                            <button value="1d" onClick={this.getForPeriod} className='first-period-button'>1d</button>
                             <button value="5d" onClick={this.getForPeriod}>5d</button>
                             <button value="1mo" onClick={this.getForPeriod}>1mo</button>
                             <button value="3mo" onClick={this.getForPeriod}>3mo</button>
-                            <button value="1y" onClick={this.getForPeriod}>1y</button>
+                            <button value="1y" onClick={this.getForPeriod} className='last-period-button'>1y</button>
                         </div>
                         {
                             data_found
